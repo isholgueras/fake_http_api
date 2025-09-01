@@ -15,8 +15,6 @@ use Drupal\Tests\BrowserTestBase;
  */
 final class FakeHttpApiBrowserTest extends BrowserTestBase {
 
-  use ApiRequestTrait;
-
   /**
    * {@inheritdoc}
    *
@@ -55,19 +53,24 @@ final class FakeHttpApiBrowserTest extends BrowserTestBase {
   public function testSimplePostRequest(): void {
     $account = $this->drupalCreateUser(['access content']);
     $this->drupalLogin($account);
-    $this->makeApiRequest('POST', Url::fromUserInput('/fake-http-api/create-user'), [
-      'json' => [
+
+    $client = $this->getSession()->getDriver()->getClient();
+
+    $client->setServerParameters([
+      'HTTP_ACCEPT' => 'application/json',
+      'CONTENT_TYPE' => 'application/json',
+    ]);
+    $client->request(
+      method: 'POST',
+      uri: Url::fromUserInput('/fake-http-api/create-user')->toString(),
+      content: json_encode([
         'name' => 'John Doe',
         'email' => 'john@example.com',
-      ],
-      'headers' => [
-        'Accept' => 'application/json',
-        'Content-Type' => 'application/json',
-      ],
-    ]);
+      ])
+    );
 
     $this->assertSession()->statusCodeEquals(201);
-    $this->assertSession()->responseContains('{"id": "u_123"}');
+    $this->assertSession()->responseContains('{"id":"u_123"}');
   }
 
 }
