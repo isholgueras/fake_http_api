@@ -1,0 +1,23 @@
+{
+  "method": "POST",
+  "request": {
+    "uri": "create-user",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "username": "jdoe",
+      "email": "jdoe@example.com"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": "u_123"
+    }
+  }
+}

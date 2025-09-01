@@ -1,0 +1,18 @@
+{
+  "method": "GET",
+  "request": {
+    "uri": "500",
+    "headers": null
+  },
+  "response": {
+    "status": 500,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "error": "something went wrong"
+      }
+    ]
+  }
+}

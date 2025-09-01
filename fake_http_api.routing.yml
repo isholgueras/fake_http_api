@@ -1,0 +1,11 @@
+fake_http_api.proxy:
+  # Per drupal.org/i/2741939, we set the `resource` query parameter with
+  # the resource to Conductor.
+  path: /fake-http-api
+  defaults:
+    _controller: '\Drupal\fake_http_api\Controller\FakeHttpApiController::proxy'
+  requirements:
+    _permission: 'access content'
+  methods: [GET, PUT, POST, PATCH, DELETE]
+  options:
+    no_cache: TRUE

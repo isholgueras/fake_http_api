@@ -1,0 +1,5 @@
+name: Fake HTTP API
+type: module
+description: 'Provides a fake HTTP API for testing using Drupal as a fake endpoint.'
+package: Testing
+core_version_requirement: ^11

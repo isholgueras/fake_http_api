@@ -1,0 +1,18 @@
+{
+  "method": "GET",
+  "request": {
+    "uri": "200/json",
+    "headers": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "it": "works"
+      }
+    ]
+  }
+}

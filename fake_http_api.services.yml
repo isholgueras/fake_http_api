@@ -1,0 +1,11 @@
+services:
+  Drupal\fake_http_api\FakeRequestMatcher:
+    arguments:
+      - '@fake_http_api.resource_fixture_discoverer'
+  fake_http_api.resource_fixture_discoverer:
+    class: Drupal\fake_http_api\ResourceFixtureDiscoverer
+    arguments:
+      - '@module_handler'
+  Drupal\fake_http_api\PathProcessor\FakeHttpApiPathProcessor:
+    tags:
+      - { name: path_processor_inbound, priority: 200 }
