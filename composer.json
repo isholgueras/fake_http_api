@@ -1,0 +1,8 @@
+{
+    "name": "drupal/fake_http_api",
+    "description": "Drupal module to help testing external APIs interaction",
+    "type": "drupal-module",
+    "require": {
+        "drupal/core": "^11"
+    }
+}
